@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import Image from "next/image";
 import { Icon } from "@iconify/react";
 
 const NEWS_ITEMS = [
@@ -27,68 +26,50 @@ const NEWS_ITEMS = [
 
 export function NewsAndTrainings() {
   return (
-    <section className="w-full py-24 bg-white">
+    <section id="news" className="w-full py-24 bg-white">
       <div className="container mx-auto px-6">
-        <div className="flex flex-col lg:flex-row gap-20">
+        <div className="flex flex-col space-y-16">
           
-          {/* Left Side: News & Announcements */}
-          <div className="flex-1 space-y-12">
-            <div className="space-y-4">
-              <h2 className="text-3xl font-heading font-black text-[#122343]">News & Announcements</h2>
-              <div className="w-12 h-1 bg-[#ef4444] rounded-full" />
+          <div className="flex flex-col md:flex-row items-end justify-between gap-8 border-b border-gray-100 pb-12">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                 <div className="w-12 h-1 bg-[#ef4444] rounded-full" />
+                 <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#122343]">Corporate Updates</span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-[#122343] leading-tight tracking-tighter uppercase">
+                News & <span className="text-[#2ea2f7]">Announcements</span>
+              </h2>
             </div>
-
-            <div className="space-y-12">
-              {NEWS_ITEMS.map((news, idx) => (
-                <div key={idx} className="space-y-6 pb-12 border-b border-gray-100 last:border-0">
-                  <div className="flex flex-col md:flex-row md:items-center justify-between gap-2">
-                    <h3 className="text-lg font-black text-[#122343] hover:text-[#2ea2f7] transition-colors cursor-pointer">
-                      {news.title}
-                    </h3>
-                    <div className="flex items-center gap-2 text-[11px] font-bold text-gray-400 whitespace-nowrap">
-                      <span>{news.date}</span>
-                      <span className="w-px h-3 bg-gray-200" />
-                      <span className="text-[#122343]">{news.source}</span>
-                    </div>
-                  </div>
-                  <p className="text-gray-400 text-sm leading-relaxed max-w-3xl">
-                    {news.excerpt}
-                  </p>
-                  <button className="border border-[#122343] px-6 py-2 text-[10px] font-black uppercase tracking-widest text-[#122343] hover:bg-[#122343] hover:text-white transition-all">
-                    READ MORE
-                  </button>
-                </div>
-              ))}
-            </div>
+            <Link href="#" className="flex items-center gap-4 font-black uppercase tracking-widest text-[10px] text-[#122343]/60 hover:text-[#122343] group">
+               VIEW ALL UPDATES
+               <div className="w-10 h-10 border border-gray-100 flex items-center justify-center rounded-full group-hover:bg-[#ef4444] group-hover:border-transparent group-hover:text-white transition-all">
+                 <Icon icon="lucide:arrow-right" className="w-4 h-4" />
+               </div>
+            </Link>
           </div>
 
-          {/* Right Side: Training Card */}
-          <div className="lg:w-[450px]">
-            <div className="bg-[#f8f9fa] rounded-sm overflow-hidden shadow-sm sticky top-32">
-              <div className="bg-[#6c757d] p-8">
-                <h3 className="text-2xl font-heading font-bold text-white tracking-tight">
-                  Internationally Recognised Trainings
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 pt-4">
+            {NEWS_ITEMS.map((news, idx) => (
+              <div key={idx} className="group flex flex-col space-y-8 bg-gray-50/50 p-10 hover:bg-white hover:shadow-2xl transition-all border border-transparent hover:border-gray-100">
+                <div className="flex items-center justify-between">
+                   <span className="text-[10px] font-black uppercase tracking-widest text-[#ef4444]">{news.source}</span>
+                   <span className="text-[10px] font-bold text-gray-400">{news.date}</span>
+                </div>
+                
+                <h3 className="text-xl font-black text-[#122343] hover:text-[#2ea2f7] transition-colors leading-tight min-h-[56px]">
+                  {news.title}
                 </h3>
-              </div>
-              
-              <div className="relative aspect-video">
-                <Image 
-                  src="/Images/intro.png"
-                  alt="Training Session"
-                  fill
-                  className="object-cover"
-                />
-              </div>
-
-              <div className="p-8 space-y-8">
-                <p className="text-gray-500 text-sm leading-relaxed">
-                  Techtrade Hub offers internationally recognised maritime and logistics courses delivered by accredited instructors, and boasts the highest standard of professional training for industry leaders.
+                
+                <p className="text-gray-400 text-xs leading-relaxed line-clamp-3">
+                  {news.excerpt}
                 </p>
-                <button className="w-full md:w-auto bg-[#122343] text-white px-8 py-4 text-[11px] font-black uppercase tracking-widest hover:bg-[#1a2d4f] transition-all">
-                  EXPLORE TRAININGS
-                </button>
+                
+                <div className="pt-4 border-t border-gray-100 flex items-center justify-between opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                   <span className="text-[10px] uppercase font-black tracking-[0.3em] text-[#122343]">Read Briefing</span>
+                   <Icon icon="lucide:arrow-right" className="w-5 h-5 text-[#ef4444]" />
+                </div>
               </div>
-            </div>
+            ))}
           </div>
 
         </div>

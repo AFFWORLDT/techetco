@@ -21,7 +21,7 @@ export default function Home() {
       <MarketAnalysis />
       <Blog />
       <Contact />
-      <ThankYou />
+      {/* <ThankYou /> */}
     </div>
   );
 }

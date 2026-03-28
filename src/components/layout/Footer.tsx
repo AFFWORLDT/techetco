@@ -43,11 +43,11 @@ export function Footer() {
           <div className="lg:w-1/3 space-y-8">
             <Link href="/" className="flex items-center gap-4">
               <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                <span className="text-white font-black text-2xl">T</span>
+                <span className="text-white font-black text-2xl tracking-tighter">T</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-white font-heading font-black text-2xl tracking-tighter leading-none uppercase">Techtrade</span>
-                <span className="text-white font-heading font-light text-xs tracking-[0.4em] mt-0.5 uppercase">Hub Electronics</span>
+                <span className="text-white font-heading font-black text-2xl tracking-tighter leading-none uppercase">TECH ET CO</span>
+                <span className="text-white font-heading font-light text-[9px] tracking-[0.4em] mt-0.5 uppercase opacity-60 italic">ELECTRONICS TRADING</span>
               </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
@@ -99,8 +99,8 @@ export function Footer() {
       {/* Bottom Legal Section */}
       <div className="bg-[#1a1a1a] py-6">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-[11px] text-gray-400 font-medium tracking-wide">
-            &copy; {currentYear} Techtrade Hub Electronics Trading Co. LLC. All rights reserved. {" "}
+          <p className="text-[11px] text-gray-400 font-medium tracking-wide text-center md:text-left">
+            &copy; {currentYear} Tech ET Co Electronics Trading Co. LLC. All rights reserved. {" "}
             <Link href="#" className="underline ml-2">Privacy Policy</Link>
           </p>
           <div className="flex items-center gap-6">

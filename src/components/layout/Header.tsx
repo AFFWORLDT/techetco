@@ -3,9 +3,11 @@
 import Link from "next/link";
 import { Icon } from "@iconify/react";
 import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export function Header() {
   const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,7 +19,7 @@ export function Header() {
 
   const navLinks = [
     { name: "EXPLORE", href: "/" },
-    { name: "TRAINING", href: "#training" },
+    { name: "ABOUT", href: "/about" },
     { name: "NEWS & ANNOUNCEMENTS", href: "/blog" },
     { name: "HELP", href: "#help" }
   ];
@@ -39,15 +41,21 @@ export function Header() {
 
           {/* Nav Links */}
           <nav className="hidden lg:flex items-center gap-10">
-            {navLinks.map((link) => (
-              <Link 
-                key={link.name} 
-                href={link.href}
-                className="text-[11px] font-bold text-white/80 hover:text-white tracking-widest transition-colors uppercase"
-              >
-                {link.name}
-              </Link>
-            ))}
+            {navLinks.map((link) => {
+              const isActive = link.href === "/" 
+                ? pathname === "/" 
+                : pathname.startsWith(link.href);
+              return (
+                <Link 
+                  key={link.name} 
+                  href={link.href}
+                  className={`text-[11px] font-bold tracking-widest transition-all uppercase flex flex-col items-center gap-1 group ${isActive ? "text-[#ef4444]" : "text-white/80 hover:text-white"}`}
+                >
+                  {link.name}
+                  <div className={`w-1 h-1 rounded-full transition-all ${isActive ? "bg-[#ef4444] opacity-100" : "bg-transparent opacity-0 group-hover:bg-white/20 group-hover:opacity-100"}`} />
+                </Link>
+              );
+            })}
             <Icon icon="lucide:search" className="w-5 h-5 text-white/60 hover:text-white transition-colors cursor-pointer" />
           </nav>
 
