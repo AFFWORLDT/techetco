@@ -1,49 +1,92 @@
+"use client";
+
+import Image from "next/image";
+import { Icon } from "@iconify/react";
+
+const VALUES = [
+  { 
+    title: "Global Connectivity", 
+    desc: "Seamlessly bridging the gap between manufacturers and global trade markets.", 
+    icon: "lucide:connectivity" 
+  },
+  { 
+    title: "Trade Excellence", 
+    desc: "Delivering unmatched precision in every transaction from Dubai to the world.", 
+    icon: "lucide:award" 
+  },
+  { 
+    title: "Digital Innovation", 
+    desc: "Leveraging state-of-the-art trade technologies for maximum logistics efficiency.", 
+    icon: "lucide:zap" 
+  }
+];
+
 export function Introduction() {
   return (
-    <section className="relative w-full py-20 overflow-hidden bg-[#0F111A] bg-[url('/Images/bg.jpg')] bg-cover bg-center">
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black/90 z-0 pointer-events-none"></div>
-
-      <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-        
-        {/* Left Content - Hexagon Image Placeholder */}
-        <div className="flex-1 flex justify-center md:justify-start relative items-center">
-          {/* Hexagon Border / Mask */}
-          <div className="relative w-[400px] h-[450px] md:w-[550px] md:h-[600px] z-10" 
-               style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}>
-             
-             {/* Inner Image Div (Placeholder for now) */}
-             <div className="absolute inset-2 bg-slate-800"
-                  style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}>
-                <div className="flex items-center justify-center h-full text-muted-foreground p-8 text-center bg-black/40">
-                   [Introduction Image Placeholder]
-                </div>
-             </div>
-          </div>
-           
-          {/* Golden border thick lines to frame the hexagon */}
-          <div className="absolute w-[310px] h-[360px] md:w-[520px] md:h-[570px] bg-primary z-0"
-               style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}>
-          </div>
+    <section className="relative w-full py-32 bg-white overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-24">
           
-          {/* Abstract geometric shapes around */}
-          <div className="absolute -bottom-12 -right-12 w-48 h-48 border-12 border-primary rotate-45 opacity-60 pointer-events-none z-0"></div>
-          <div className="absolute -top-12 -left-12 w-64 h-64 border-r-16 border-b-16 border-primary rotate-12 opacity-40 pointer-events-none z-0"></div>
-        </div>
-
-        {/* Right Content */}
-        <div className="flex-1 flex flex-col justify-center text-left md:ml-12">
-          <h2 className="text-5xl md:text-6xl font-serif text-primary mb-6" style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}>
-            Introduction
-          </h2>
-          <p className="text-primary/90 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl font-medium tracking-wide">
-            At TechET Co., we believe trade is more than just business &ndash; it&apos;s about building bridges, connecting markets, and empowering growth. Based in Dubai, the world&apos;s hub of innovation and commerce, we specialize in electronics trading. With a passion for excellence and a commitment to transparency, TechET is your trusted partner in navigating global markets and unlocking new opportunities.
-          </p>
-          <div className="w-full max-w-[400px] h-[2px] bg-primary relative flex justify-center items-center">
-             <div className="w-4 h-4 bg-primary rotate-45 absolute border-2 border-[#0F111A]"></div>
+          {/* Left Side: Professional Graphic / Image Component */}
+          <div className="flex-1 relative w-full group">
+            <div className="relative aspect-4/5 w-full bg-[#122343] p-1 shadow-2xl overflow-hidden group-hover:rotate-1 transition-transform">
+               <Image 
+                  src="/Images/intro.png"
+                  alt="Techtrade Corporate Hub"
+                  fill
+                  className="object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
+               />
+            </div>
+            {/* Red Border Accent */}
+            <div className="absolute -bottom-8 -left-8 w-48 h-48 border-l-4 border-b-4 border-[#ef4444] z-10" />
+            
+            {/* Experience Badge */}
+            <div className="absolute top-12 -right-12 glass p-10 bg-white/95 border border-gray-100 shadow-3xl text-center hidden md:block">
+               <p className="text-4xl font-black text-[#122343] leading-none mb-2">10+</p>
+               <p className="text-[10px] uppercase font-black text-gray-400 tracking-widest leading-tight">Years of <br /> Excellence</p>
+            </div>
           </div>
-        </div>
 
+          {/* Right Side: Pro UI Content Block */}
+          <div className="flex-1 space-y-12">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                 <div className="w-12 h-0.5 bg-[#ef4444]" />
+                 <span className="text-[11px] font-black text-[#122343] uppercase tracking-[0.3em]">About Tech ET Co</span>
+              </div>
+              <h2 className="text-5xl md:text-7xl font-heading font-black text-[#122343] leading-[0.95] tracking-tighter">
+                Redefining the <br /> <span className="text-[#2ea2f7]">Global Commerce</span>
+              </h2>
+              <p className="text-lg text-gray-400 leading-relaxed font-normal">
+                Based in Dubai, the nexus of international trade, <span className="text-[#122343] font-bold">Tech ET Co</span> specializes in the agile procurement and delivery of high-end electronics. Our mission is to eliminate trade friction through localized expertise and global connectivity.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-x-12 gap-y-10">
+              {VALUES.map((val, i) => (
+                <div key={i} className="flex items-start gap-4 group">
+                  <div className="w-12 h-12 rounded-full border border-gray-100 flex items-center justify-center text-[#ef4444] group-hover:bg-[#ef4444] group-hover:text-white transition-all">
+                    <Icon icon={val.icon || "lucide:check"} className="w-6 h-6" />
+                  </div>
+                  <div className="text-left space-y-1">
+                    <h5 className="font-black text-[#122343] uppercase text-sm tracking-widest">{val.title}</h5>
+                    <p className="text-gray-400 text-xs leading-relaxed">{val.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="pt-8 flex justify-center lg:justify-start">
+               <button className="flex items-center gap-4 text-[#122343] font-black uppercase tracking-widest text-xs group cursor-pointer">
+                  EXPLORE OUR STORY
+                  <div className="w-10 h-10 border border-[#ef4444] flex items-center justify-center rounded-full group-hover:bg-[#ef4444] group-hover:text-white transition-all">
+                    <Icon icon="lucide:arrow-right" className="w-5 h-5" />
+                  </div>
+               </button>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

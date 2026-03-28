@@ -1,55 +1,73 @@
 "use client";
 
 import Link from "next/link";
-import { Button } from "@/components/ui/button";
-import { useState } from "react";
-import { Menu, X } from "lucide-react";
+import { Icon } from "@iconify/react";
+import { useState, useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export function Header() {
-  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const pathname = usePathname();
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setScrolled(window.scrollY > 50);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
+
+  const navLinks = [
+    { name: "EXPLORE", href: "/" },
+    { name: "ABOUT", href: "/about" },
+    { name: "NEWS & ANNOUNCEMENTS", href: "/blog" },
+    { name: "HELP", href: "#help" }
+  ];
 
   return (
-    <header className="sticky top-0 z-50 w-full border-b border-primary/20 bg-[#0F111A]/95 supports-backdrop-filter:bg-[#0F111A]/60 backdrop-blur">
-      <div className="container mx-auto px-4 flex h-20 items-center justify-between">
-        <Link href="/" className="flex items-center space-x-2">
-          <div className="text-primary border border-primary p-1 w-10 h-10 flex items-center justify-center font-bold text-xl">
-            T
+    <header className={`fixed top-0 z-50 w-full transition-all duration-300 ${scrolled ? "bg-[#122343] py-4" : "bg-transparent py-8"}`}>
+      <div className="container mx-auto px-6">
+        <div className="flex items-center justify-between">
+          {/* Logo Section */}
+          <Link href="/" className="flex items-center gap-4">
+            <div className="w-12 h-12 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+              <span className="text-white font-black text-2xl tracking-tighter">T</span>
+            </div>
+            <div className="flex flex-col">
+              <span className="text-white font-heading font-black text-xl tracking-tighter leading-none uppercase">TECH ET CO</span>
+              <span className="text-white font-heading font-light text-[9px] tracking-[0.4em] mt-0.5 uppercase opacity-60 italic">ELECTRONICS TRADING</span>
+            </div>
+          </Link>
+
+          {/* Nav Links */}
+          <nav className="hidden lg:flex items-center gap-10">
+            {navLinks.map((link) => {
+              const isActive = link.href === "/" 
+                ? pathname === "/" 
+                : pathname.startsWith(link.href);
+              return (
+                <Link 
+                  key={link.name} 
+                  href={link.href}
+                  className={`text-[11px] font-bold tracking-widest transition-all uppercase flex flex-col items-center gap-1 group ${isActive ? "text-[#ef4444]" : "text-white/80 hover:text-white"}`}
+                >
+                  {link.name}
+                  <div className={`w-1 h-1 rounded-full transition-all ${isActive ? "bg-[#ef4444] opacity-100" : "bg-transparent opacity-0 group-hover:bg-white/20 group-hover:opacity-100"}`} />
+                </Link>
+              );
+            })}
+            <Icon icon="lucide:search" className="w-5 h-5 text-white/60 hover:text-white transition-colors cursor-pointer" />
+          </nav>
+
+          {/* Action Buttons */}
+          <div className="flex items-center gap-4">
+             <Link href="#service-center" className="hidden md:flex items-center gap-2 bg-white px-6 py-2.5 rounded-sm hover:bg-white/90 transition-all text-[#122343] text-[10px] font-black uppercase tracking-widest">
+               <Icon icon="lucide:monitor" className="w-4 h-4" />
+               SERVICE CENTER
+             </Link>
           </div>
-          <span className="font-bold text-2xl text-primary tracking-widest uppercase">Techetco</span>
-        </Link>
-        
-        {/* Desktop Nav */}
-        <nav className="hidden md:flex items-center gap-8 text-sm font-medium tracking-wide">
-          <Link href="/" className="transition-colors hover:text-primary text-gray-300">Home</Link>
-          <Link href="/about" className="transition-colors hover:text-primary text-gray-300">About</Link>
-          <Link href="/blog" className="transition-colors hover:text-primary text-gray-300">Blog</Link>
-          <Link href="/contact" className="transition-colors hover:text-primary text-gray-300">Contact</Link>
-        </nav>
-        
-        <div className="hidden md:flex items-center gap-4">
-          <Link href="/contact">
-            <Button variant="default" className="bg-primary hover:bg-primary/90 text-black font-semibold rounded-none px-8">Get In Touch</Button>
-          </Link>
         </div>
-
-        {/* Mobile Toggle */}
-        <button className="md:hidden text-primary p-2" onClick={() => setIsOpen(!isOpen)}>
-          {isOpen ? <X size={28} /> : <Menu size={28} />}
-        </button>
       </div>
-
-      {/* Mobile Menu Overlay */}
-      {isOpen && (
-        <div className="md:hidden absolute top-20 left-0 w-full bg-[#0F111A] border-b border-primary/20 shadow-xl flex flex-col items-center py-8 gap-6 z-40">
-          <Link href="/" onClick={() => setIsOpen(false)} className="text-xl text-gray-300 hover:text-primary transition-colors">Home</Link>
-          <Link href="/about" onClick={() => setIsOpen(false)} className="text-xl text-gray-300 hover:text-primary transition-colors">About</Link>
-          <Link href="/blog" onClick={() => setIsOpen(false)} className="text-xl text-gray-300 hover:text-primary transition-colors">Blog</Link>
-          <Link href="/contact" onClick={() => setIsOpen(false)} className="text-xl text-gray-300 hover:text-primary transition-colors">Contact</Link>
-          <Link href="/contact" onClick={() => setIsOpen(false)} className="mt-4">
-            <Button variant="default" className="bg-primary hover:bg-primary/90 text-black font-semibold rounded-none px-12">Get In Touch</Button>
-          </Link>
-        </div>
-      )}
     </header>
   );
 }

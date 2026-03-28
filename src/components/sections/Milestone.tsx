@@ -1,74 +1,64 @@
+"use client";
+
+import { Icon } from "@iconify/react";
+
+const MILESTONES = [
+  { 
+    year: "2024", 
+    title: "Idea & Foundation", 
+    desc: "Conceptualized Tech ET Co in Dubai with a vision to become a trusted global trading partner.", 
+    icon: "lucide:lightbulb" 
+  },
+  { 
+    year: "2025", 
+    title: "Tech ET Co Dubai Registration", 
+    desc: "Officially registered in Dubai, focusing on high-end electronics, shipping, and specialized procurement.", 
+    icon: "lucide:building-2" 
+  },
+  { 
+    year: "2026", 
+    title: "Expansion & Supply Networks", 
+    desc: "Built strong supplier networks across Asia and the Middle East, preparing for international partnerships.", 
+    icon: "lucide:trending-up" 
+  }
+];
+
 export function Milestone() {
   return (
-    <section className="relative w-full py-24 overflow-hidden bg-[#0F111A] bg-[url('/Images/bg.jpg')] bg-cover bg-center">
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black/90 z-0 pointer-events-none"></div>
-
-      <div className="container mx-auto px-4 md:px-12 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-        
-        {/* Left Content */}
-        <div className="flex-1 flex flex-col justify-center text-left max-w-2xl">
-          <h2 className="text-5xl md:text-6xl font-serif text-primary mb-12" style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}>
-            Milestone
+    <section className="relative w-full py-32 bg-white overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col items-center text-center space-y-6 mb-24 max-w-4xl mx-auto">
+          <div className="w-12 h-1 bg-[#ef4444] rounded-full mx-auto" />
+          <h2 className="text-4xl md:text-6xl font-heading font-black text-[#122343] leading-tight tracking-tighter uppercase">
+            Our Strategic <span className="text-[#2ea2f7]">Journey</span>
           </h2>
-
-          <div className="flex flex-col gap-10 relative">
-            {/* Timeline Line (Mobile hidden for simplicity or customized later) */}
-            
-            {/* 2024 */}
-            <div className="relative">
-              <h3 className="text-2xl md:text-3xl font-serif text-primary mb-3">2024-Idea & Foundation</h3>
-              <p className="text-primary/90 text-lg leading-relaxed font-medium tracking-wide">
-                Conceptualized TechET Co. in Dubai with a vision to become a trusted global trading partner.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-              {/* 2025 */}
-              <div className="relative">
-                <h3 className="text-xl md:text-2xl font-serif text-primary mb-3">2025-Company Establishment</h3>
-                <p className="text-primary/90 text-base leading-relaxed font-medium tracking-wide">
-                  Officially registered TechET Co. in Dubai, focusing on electronics, shipping, and oil & gas procurement.
-                </p>
-              </div>
-
-              {/* 2026 */}
-              <div className="relative">
-                <h3 className="text-xl md:text-2xl font-serif text-primary mb-3">2026-Market Expansion</h3>
-                <p className="text-primary/90 text-base leading-relaxed font-medium tracking-wide">
-                  Built strong supplier networks across Asia and the Middle East, preparing for international partnerships.
-                </p>
-              </div>
-            </div>
-          </div>
+          <p className="text-lg text-gray-400 leading-relaxed font-normal">
+             The evolution of Tech ET Co from a strategic concept to a Dubai-based global trading powerhouse.
+          </p>
         </div>
 
-        {/* Right Content - Hexagon Image Placeholder */}
-        <div className="flex-1 flex justify-center md:justify-end relative items-center">
-          <div className="relative w-[300px] h-[350px] md:w-[480px] md:h-[530px] z-10" 
-               style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}>
-             <div className="absolute inset-2 bg-slate-800"
-                  style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}>
-                <div className="flex items-center justify-center h-full text-muted-foreground p-8 text-center bg-black/40">
-                   [Milestone Image Placeholder]
-                </div>
-             </div>
-          </div>
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-12 relative">
+           {/* Timeline Line Overlay (Desktop only) */}
+           <div className="hidden md:block absolute top-[2.5rem] left-12 right-12 h-0.5 bg-gray-100 z-0" />
            
-          {/* Golden border */}
-          <div className="absolute w-[310px] h-[360px] md:w-[500px] md:h-[550px] bg-primary z-0"
-               style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}>
-          </div>
-          
-          {/* Abstract geometric shapes around */}
-          <div className="absolute -bottom-16 -right-16 w-64 h-64 border-r-16 border-b-16 border-primary rotate-12 opacity-80 pointer-events-none z-0"></div>
-          <div className="absolute -top-16 -left-16 w-48 h-48 border-t-12 border-l-12 border-primary rotate-45 opacity-60 pointer-events-none z-0"></div>
+           {MILESTONES.map((mile, i) => (
+             <div key={i} className="relative z-10 flex flex-col items-center text-center space-y-6 group">
+                <div className="w-20 h-20 rounded-full bg-[#122343] flex items-center justify-center text-white shadow-2xl transition-transform group-hover:scale-110">
+                   <Icon icon={mile.icon} className="w-8 h-8" />
+                </div>
+                <div className="space-y-4">
+                   <div className="flex flex-col items-center gap-1">
+                      <span className="text-2xl font-black text-[#ef4444]">{mile.year}</span>
+                      <h4 className="text-xl font-black text-[#122343] uppercase tracking-widest">{mile.title}</h4>
+                   </div>
+                   <p className="text-sm text-gray-400 leading-relaxed max-w-xs mx-auto">{mile.desc}</p>
+                </div>
+                {/* Red Dot Accent (Top Line Desktop) */}
+                <div className="hidden md:block absolute top-[2.3rem] left-1/2 -translate-x-1/2 w-3 h-3 bg-[#ef4444] rounded-full shadow-lg opacity-0 group-hover:opacity-100 transition-opacity" />
+             </div>
+           ))}
         </div>
-
       </div>
-
-      {/* Top Left decorative shape */}
-      <div className="absolute top-0 left-0 w-[400px] h-[200px] bg-black border-r-[16px] border-b-[16px] border-primary skew-x-12 -translate-x-16 -translate-y-8 z-0 shadow-2xl"></div>
     </section>
   );
 }

@@ -1,129 +1,96 @@
-import Image from "next/image";
+"use client";
+
+import { Icon } from "@iconify/react";
+
+const ROLES = [
+  { name: "Freight Forwarder", icon: "lucide:container" },
+  { name: "Haulier", icon: "lucide:truck" },
+  { name: "Free Zone Company", icon: "lucide:building-2" },
+  { name: "Clearing Agent", icon: "lucide:clipboard-check" },
+  { name: "Airline Agent", icon: "lucide:plane" },
+  { name: "Shipping Agent", icon: "lucide:ship" },
+  { name: "Cargo Owner", icon: "lucide:package-check" }
+];
 
 export function Hero() {
   return (
-    <section className="relative w-full min-h-[600px] overflow-hidden bg-[#0F111A] bg-[url('/Images/bg.jpg')] bg-cover bg-center py-12 md:py-0">
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black/90 z-0 pointer-events-none"></div>
+    <section className="relative w-full h-screen min-h-[800px] flex items-center justify-center pt-20 overflow-hidden bg-[#122343]">
+      {/* Cinematic Background Video Overlay */}
+      <div className="absolute inset-0 z-0">
+        <video
+          autoPlay
+          muted
+          loop
+          playsInline
+          className="w-full h-full object-cover opacity-60 scale-105"
+        >
+          <source src="/video/hero.mp4" type="video/mp4" />
+        </video>
+        <div className="absolute inset-0 bg-linear-to-b from-[#122343]/80 via-transparent to-[#122343]/90 z-10" />
+      </div>
 
-      {/* Background Graphic Elements */}
-      <div className="absolute inset-0 pointer-events-none z-0">
-        {/* Diagonal golden lines */}
-        <div className="absolute top-0 left-0 w-full h-full">
-          <svg
-            width="100%"
-            height="100%"
-            viewBox="0 0 1200 600"
-            preserveAspectRatio="xMidYMid slice"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            {/* Top Chevrons */}
-            <path
-              d="M400 0 L700 300 L1000 0"
-              stroke="var(--color-primary)"
-              strokeWidth="20"
-              fill="none"
-              opacity="0.8"
-            />
-            <path
-              d="M500 -50 L700 150 L900 -50"
-              stroke="var(--color-primary)"
-              strokeWidth="10"
-              fill="none"
-              opacity="0.5"
-            />
+      <div className="container mx-auto px-6 relative z-20 text-center space-y-20">
+        <div className="space-y-6 pt-20">
+          <h1 className="text-4xl md:text-6xl lg:text-8xl font-heading font-black text-white leading-tight tracking-tighter drop-shadow-2xl">
+            Empowering <br />
+            <span className="text-[#2ea2f7] text-glow">Global Trade</span>
+          </h1>
+          <p className="text-base md:text-xl text-white/80 font-medium tracking-wide max-w-3xl mx-auto leading-relaxed">
+            Welcome to Techtrade Hub. Your premier partner in high-end electronics trading and seamless global logistics, headquartered in the heart of Dubai.
+          </p>
+        </div>
 
-            {/* Bottom Chevrons */}
-            <path
-              d="M400 600 L700 300 L1000 600"
-              stroke="var(--color-primary)"
-              strokeWidth="20"
-              fill="none"
-              opacity="0.8"
-            />
-            <path
-              d="M500 650 L700 450 L900 650"
-              stroke="var(--color-primary)"
-              strokeWidth="10"
-              fill="none"
-              opacity="0.5"
-            />
-          </svg>
+        {/* Roles Navigation Grid */}
+        <div className="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-y-12 gap-x-6 pt-12 border-t border-white/5 bg-[#122343]/50 backdrop-blur-3xl rounded-[2rem] p-12">
+          {ROLES.map((role) => (
+            <button 
+              key={role.name}
+              className="flex flex-col items-center gap-6 group hover:-translate-y-2 transition-transform cursor-pointer"
+            >
+              <div className="w-16 h-16 rounded-full border-2 border-white/20 flex items-center justify-center text-white/60 group-hover:text-white group-hover:border-[#2ea2f7] transition-all bg-white/5 relative">
+                 <Icon icon={role.icon} className="w-8 h-8" />
+                 <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-4 h-[2px] bg-[#ef4444] opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <span className="text-[11px] font-black text-white/70 group-hover:text-white tracking-widest uppercase text-center leading-relaxed max-w-[100px]">
+                {role.name}
+              </span>
+            </button>
+          ))}
         </div>
       </div>
 
-      <div className="container mx-auto px-4 min-h-[600px] relative z-10 flex flex-col md:flex-row items-center justify-between gap-12 md:gap-4">
-        {/* Left Content */}
-        <div className="flex-1 flex flex-col justify-center items-center text-center pt-8 md:pt-0">
-          <div className="mb-12">
-            {/* Logo Area */}
-            <div className="flex flex-col items-center gap-1">
-              <div className="text-primary border border-primary p-2 w-14 h-14 flex items-center justify-center font-bold text-2xl relative mb-1">
-                T
-              </div>
-              <h2 className="text-primary font-bold tracking-[0.2em] text-lg uppercase">
-                Techet
-              </h2>
-              <p className="text-primary/70 text-[10px] text-center leading-tight mt-1">
-                TechTrade Hub Electronics
-                <br />
-                Trading Co. LLC
-                <br />
-                Dubai - UAE
-              </p>
-              <p className="text-primary text-sm font-serif mt-2">
-                Techtrade Hub Electronics Trading Co.
-              </p>
-            </div>
+      {/* Techtrade Performance Section - Global Impact */}
+      <div className="absolute bottom-0 left-0 w-full bg-white/95 text-[#122343] py-10 shadow-2xl translate-y-2 z-30">
+        <div className="container mx-auto px-6 text-center space-y-6">
+          <h3 className="text-sm font-black uppercase tracking-[0.3em] opacity-80">
+            Techtrade Hub • Strategic Global Growth Metrics
+          </h3>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-12 max-w-5xl mx-auto pt-4 relative">
+             {/* Red accent line in middle */}
+             <div className="absolute top-10 left-1/2 -translate-x-1/2 w-12 h-0.5 bg-[#ef4444]/40" />
+             
+             <div className="flex items-center justify-center gap-4">
+               <Icon icon="lucide:globe" className="w-8 h-8 text-[#ef4444]" />
+               <div className="text-left">
+                  <p className="text-3xl font-black leading-none">92%</p>
+                  <p className="text-[10px] uppercase font-bold text-gray-400">Global Trade Reach</p>
+               </div>
+             </div>
+             <div className="flex items-center justify-center gap-4">
+               <Icon icon="lucide:cpu" className="w-8 h-8 text-[#ef4444]" />
+               <div className="text-left">
+                  <p className="text-3xl font-black leading-none">500+</p>
+                  <p className="text-[10px] uppercase font-bold text-gray-400">Tech Trading Units</p>
+               </div>
+             </div>
+             <div className="flex items-center justify-center gap-4">
+               <Icon icon="lucide:map-pin" className="w-8 h-8 text-[#ef4444]" />
+               <div className="text-left">
+                  <p className="text-3xl font-black leading-none">Dubai</p>
+                  <p className="text-[10px] uppercase font-bold text-gray-400">Global Headquarters</p>
+               </div>
+             </div>
           </div>
-
-          <div className="flex flex-col items-center">
-            <h1
-              className="text-5xl md:text-[5.5rem] leading-[1.1] font-serif text-primary mb-6 tracking-wide uppercase"
-              style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}
-            >
-              Company
-              <br />
-              Profile
-            </h1>
-            <div className="w-full max-w-[400px] h-[2px] bg-primary relative flex justify-center items-center">
-              <div className="w-4 h-4 bg-primary rotate-45 absolute border-2 border-[#0F111A]"></div>
-            </div>
-          </div>
-        </div>
-
-        {/* Right Content - Hexagon Image Placeholder */}
-        <div className="flex-1 h-full flex items-center justify-center md:justify-end mt-12 md:mt-0 relative">
-          {/* Hexagon Border / Mask */}
-          <div
-            className="relative w-[300px] h-[350px] md:w-[550px] md:h-[500px]"
-            style={{
-              clipPath:
-                "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-            }}
-          >
-            {/* Inner Image Div (Placeholder for now) */}
-            <div
-              className="absolute inset-2 bg-slate-800"
-              style={{
-                clipPath:
-                  "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-              }}
-            >
-              <div className="flex items-center justify-center h-full text-muted-foreground">
-                [Image Placeholder]
-              </div>
-            </div>
-          </div>
-
-          {/* Golden border thick lines to frame the hexagon (CSS hack since stroke clip path is complex) */}
-          <div
-            className="absolute w-[310px] h-[360px] md:w-[465px] md:h-[515px] bg-primary -z-10"
-            style={{
-              clipPath:
-                "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)",
-            }}
-          ></div>
         </div>
       </div>
     </section>

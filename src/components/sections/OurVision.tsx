@@ -1,56 +1,91 @@
+"use client";
+
+import { Icon } from "@iconify/react";
+
+const STRATEGIC_POINTS = [
+  { 
+    title: "Market Access", 
+    desc: "Unlocking seamless entry into Dubai’s global trade ecosystem for electronics and beyond.", 
+    icon: "lucide:globe" 
+  },
+  { 
+    title: "Logistics Agility", 
+    desc: "Implementing state-of-the-art logistics protocols for rapid, secure, and reliable shipping.", 
+    icon: "lucide:truck" 
+  },
+  { 
+    title: "Client Centricity", 
+    desc: "Building long-term, high-value partnerships through transparency and strategic support.", 
+    icon: "lucide:users" 
+  }
+];
+
 export function OurVision() {
   return (
-    <section className="relative w-full py-20 overflow-hidden bg-[#0F111A] bg-[url('/Images/bg.jpg')] bg-cover bg-center">
-      {/* Background Overlay */}
-      <div className="absolute inset-0 bg-black/90 z-0 pointer-events-none"></div>
+    <section className="relative w-full py-32 bg-[#122343] text-white">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-24">
+          
+          {/* Left Side: Strategic Insight Content Block */}
+          <div className="flex-1 space-y-12">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                 <div className="w-12 h-0.5 bg-[#ef4444]" />
+                 <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#2ea2f7]">Our Vision</span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-heading font-black leading-tight tracking-tight drop-shadow-2xl">
+                Elevating the Standard of <br /> <span className="text-white italic opacity-80 decoration-[#ef4444] decoration-2 underline-offset-8 underline">Trade Intelligence</span>
+              </h2>
+              <p className="text-lg text-white/50 leading-relaxed font-normal max-w-xl">
+                 At Tech ET Co, our vision is to establish a frictionless global trading network where technology and logistics converge to empower every partner.
+              </p>
+            </div>
 
-      <div className="container mx-auto px-4 relative z-10 flex flex-col md:flex-row items-center justify-between gap-12">
-        
-        {/* Left Content - Text */}
-        <div className="flex-1 flex flex-col justify-center text-left md:mr-12 relative">
-          
-          <h2 className="text-5xl md:text-6xl font-serif text-primary mb-8 text-center" style={{ textShadow: "2px 2px 4px rgba(0,0,0,0.5)" }}>
-            Our Vision
-          </h2>
-          
-          {/* Decorative line behind text */}
-          <div className="absolute top-[60%] left-0 w-full h-[2px] bg-primary opacity-50 flex justify-center items-center -z-10">
-             <div className="w-4 h-4 bg-primary rotate-45 absolute border-2 border-[#0F111A] translate-x-32"></div>
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+               {STRATEGIC_POINTS.map((point, i) => (
+                  <div key={i} className="bg-white/5 p-8 rounded-sm hover:bg-white/10 border border-white/5 hover:border-white/10 transition-all group">
+                     <Icon icon={point.icon} className="w-8 h-8 text-[#2ea2f7] mb-6 group-hover:scale-110 transition-transform" />
+                     <h5 className="font-black uppercase text-sm tracking-widest text-white mb-2">{point.title}</h5>
+                     <p className="text-white/40 text-[11px] leading-relaxed">{point.desc}</p>
+                  </div>
+               ))}
+            </div>
           </div>
 
-          <p className="text-primary/90 text-lg md:text-xl leading-relaxed mb-12 max-w-2xl font-medium tracking-wide text-justify relative z-10 px-4">
-            To be a leading global trading partner that empowers businesses with innovative solutions, trusted partnerships, and sustainable growth. At TechET, our vision is to bridge markets across continents, harness technology to deliver excellence, and create value that drives progress for our clients, communities, and industries worldwide.
-          </p>
-          
-        </div>
-
-        {/* Right Content - Hexagon Image Placeholder */}
-        <div className="flex-1 flex justify-center md:justify-end relative items-center">
-          {/* Hexagon Border / Mask */}
-          {/* Note: using slightly different hexagon clip-path to match standard flat-topped hexagon if needed, or keeping the same one. */}
-          <div className="relative w-[300px] h-[350px] md:w-[500px] md:h-[550px] z-10" 
-               style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}>
-             
-             {/* Inner Image Div (Placeholder for now) */}
-             <div className="absolute inset-2 bg-slate-800"
-                  style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}>
-                <div className="flex items-center justify-center h-full text-muted-foreground p-8 text-center bg-black/40">
-                   [Our Vision Image Placeholder]
+          {/* Right Side: Visual Graphical Element (Trade Metrics) */}
+          <div className="flex-1 w-full relative">
+             <div className="relative aspect-square md:aspect-4/3 bg-white/5 p-12 overflow-hidden shadow-2xl">
+                <div className="absolute top-0 right-0 w-48 h-48 bg-[#ef4444]/10 rounded-full blur-[100px]" />
+                <div className="absolute bottom-0 left-0 w-32 h-32 bg-[#2ea2f7]/10 rounded-full blur-[80px]" />
+                
+                <div className="relative h-full flex flex-col items-center justify-center text-center space-y-8">
+                   <div className="w-24 h-24 bg-[#ef4444] rounded-full flex items-center justify-center text-white shadow-xl animate-pulse">
+                      <Icon icon="lucide:chart-pie" className="w-12 h-12" />
+                   </div>
+                   <div className="space-y-2">
+                      <h4 className="text-4xl md:text-5xl font-black text-white tracking-tighter">Strategic Impact</h4>
+                      <p className="text-[10px] uppercase font-black text-[#2ea2f7] tracking-[0.5em]">Future Trade Hub</p>
+                   </div>
+                   <div className="flex items-center gap-12 pt-8">
+                      <div className="text-center">
+                         <p className="text-2xl font-black text-white leading-none">Global</p>
+                         <p className="text-[10px] uppercase text-white/40 font-bold mt-1">Network</p>
+                      </div>
+                      <div className="w-px h-12 bg-white/10" />
+                      <div className="text-center">
+                         <p className="text-2xl font-black text-white leading-none">Agile</p>
+                         <p className="text-[10px] uppercase text-white/40 font-bold mt-1">Logistics</p>
+                      </div>
+                   </div>
                 </div>
              </div>
+             
+             {/* Red Vertical Bar Overlay */}
+             <div className="hidden lg:block absolute top-12 -right-6 w-1 h-[70%] bg-[#ef4444]" />
           </div>
-           
-          {/* Golden border thick lines to frame the hexagon */}
-          <div className="absolute w-[310px] h-[360px] md:w-[520px] md:h-[570px] bg-primary z-0"
-               style={{ clipPath: "polygon(25% 0%, 75% 0%, 100% 50%, 75% 100%, 25% 100%, 0% 50%)" }}>
-          </div>
+
         </div>
-
       </div>
-
-      {/* Bottom right decorative shapes */}
-      <div className="absolute -bottom-24 -right-16 w-80 h-80 bg-black rotate-45 border-t-16 border-l-16 border-primary z-0 shadow-2xl"></div>
-      <div className="absolute -bottom-40 right-0 w-[500px] h-[300px] bg-[#1a1c23] -rotate-12 z-0 border-t-8 border-primary"></div>
     </section>
   );
 }
