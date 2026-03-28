@@ -1,104 +1,97 @@
+"use client";
+
 import { Icon } from "@iconify/react";
 
+const ANALYTICAL_METRICS = [
+  { label: "Electronics Trading", value: "35%", color: "#ef4444", growth: "+12%" },
+  { label: "Global Partnership", value: "25%", color: "#2ea2f7", growth: "+8.5%" },
+  { label: "Shipping & Logistics", value: "20%", color: "#122343", growth: "+15.2%" },
+  { label: "Market Growth", value: "20%", color: "#6c757d", growth: "+5.1%" }
+];
+
 export function MarketAnalysis() {
-  const analysisPoints = [
-    { label: "Global Partnership", value: "25%", color: "oklch(0.75 0.15 85)", icon: "lucide:users" },
-    { label: "Electronics Trading", value: "35%", color: "oklch(0.65 0.15 85)", icon: "lucide:cpu" },
-    { label: "Shipping & Logistics", value: "20%", color: "oklch(0.85 0.15 85)", icon: "lucide:truck" },
-    { label: "Market Growth", value: "20%", color: "oklch(0.55 0.1 85)", icon: "lucide:trending-up" },
-  ];
-
   return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-background">
-      {/* Decorative background blur */}
-      <div className="absolute top-0 left-0 w-96 h-96 bg-primary/5 rounded-full blur-3xl -translate-x-1/2 -translate-y-1/2" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-center gap-16 lg:gap-24">
+    <section className="relative w-full py-32 bg-[#f8f9fa] overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-24">
           
-          {/* Left Content: Data Visualization Visual */}
-          <div className="flex-1 relative w-full max-w-[500px] aspect-square flex items-center justify-center">
-            {/* Multi-layered Glass Visual */}
-            <div className="relative w-full h-full animate-in zoom-in spin-in-1 duration-1000">
-               {/* Outer ring */}
-               <div className="absolute inset-0 rounded-full border border-primary/20 p-8 shadow-2xl glass-dark">
-                 <div className="absolute inset-2 rounded-full border border-primary/20 border-dashed animate-spin-slow" />
-               </div>
-               
-               {/* Middle ring */}
-               <div className="absolute inset-12 rounded-full glass border-primary/30 flex items-center justify-center shadow-2xl transition-transform hover:scale-105 duration-700">
-                 <div className="text-center space-y-2">
-                   <div className="flex items-center justify-center mb-2">
-                      <Icon icon="lucide:chart-pie" className="w-8 h-8 text-primary animate-pulse" />
-                   </div>
-                   <span className="text-5xl font-bold text-white tracking-tighter">100%</span>
-                   <p className="text-xs text-primary font-bold uppercase tracking-widest">Growth Potential</p>
-                 </div>
-               </div>
+          {/* Left Side: Professional analytical visualization */}
+          <div className="flex-1 space-y-12">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                 <div className="w-12 h-1 bg-[#ef4444] rounded-full" />
+                 <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#122343]">Market Performance</span>
+              </div>
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-[#122343] leading-tight tracking-tighter uppercase">
+                 Driving the <span className="text-[#2ea2f7]">Trade</span> Equilibrium
+              </h2>
+              <p className="text-lg text-gray-400 leading-relaxed font-normal max-w-xl">
+                 Based in Dubai, we harness global trade momentum through data-driven logistics and precision procurement strategies. Our market growth is defined by strategic agility and high-value partnerships.
+              </p>
+            </div>
 
-               {/* Floating Orbiting Data Blobs */}
-               {analysisPoints.map((point, i) => (
-                 <div 
-                   key={i}
-                   className="absolute glass px-4 py-3 rounded-2xl border-white/10 shadow-2xl animate-float-slow hover:border-primary/40 transition-all duration-300 z-20 group"
-                   style={{ 
-                     top: `${20 + i * 20}%`, 
-                     left: i % 2 === 0 ? '-15%' : '85%',
-                     animationDelay: `${i * 500}ms`
-                   }}
-                 >
-                   <div className="flex items-center gap-4">
-                     <div className="w-10 h-10 rounded-xl bg-background/50 flex items-center justify-center text-primary group-hover:scale-110 transition-transform">
-                        <Icon icon={point.icon} className="w-5 h-5" />
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 pt-8">
+               {ANALYTICAL_METRICS.map((p, i) => (
+                  <div key={i} className="bg-white p-8 border border-gray-100 shadow-sm hover:shadow-xl hover:border-[#2ea2f7] transition-all group">
+                     <div className="flex items-center justify-between mb-4">
+                        <span className="text-[10px] uppercase font-black text-gray-400 tracking-widest">{p.label}</span>
+                        <span className="text-[#2ea2f7] text-[10px] font-bold">{p.growth}</span>
                      </div>
-                     <div>
-                       <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">{point.label}</p>
-                       <p className="text-base font-bold text-white">{point.value}</p>
+                     <div className="flex items-center justify-between">
+                        <span className="text-3xl font-black text-[#122343]">{p.value}</span>
+                        <div className="w-12 h-12 rounded-full bg-gray-50 flex items-center justify-center text-[#ef4444] group-hover:bg-[#ef4444] group-hover:text-white transition-all">
+                           <Icon icon="lucide:arrow-up-right" className="w-6 h-6" />
+                        </div>
                      </div>
-                   </div>
-                 </div>
+                  </div>
                ))}
             </div>
           </div>
 
-          {/* Right Content: Text & Analysis */}
-          <div className="flex-1 space-y-10">
-            <div className="space-y-4 text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start gap-2">
-                <div className="w-8 h-px bg-primary" />
-                <span className="text-primary font-bold tracking-widest uppercase text-xs">
-                  Market Insights
-                </span>
-                <div className="w-8 h-px bg-primary hidden lg:block" />
-              </div>
-              <h2 className="text-4xl md:text-6xl font-heading font-bold text-white leading-tight">
-                Harnessing the <br />
-                <span className="text-primary text-glow">Global Trade Momentum</span>
-              </h2>
-              <p className="text-lg text-muted-foreground leading-relaxed max-w-2xl mx-auto lg:mx-0 pt-4">
-                The global trading industry is witnessing strong growth, driven by increasing demand for high-quality electronics and efficient logistics. Based in Dubai, we are strategically positioned to capture this momentum across Asia, Europe, and Africa.
-              </p>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-              {analysisPoints.map((point, i) => (
-                <div key={i} className="glass-dark p-6 rounded-3xl border-white/10 group hover:border-primary/30 transition-all duration-500 hover:shadow-primary/5">
-                  <div className="flex items-center justify-between mb-4">
-                    <div className="flex items-center gap-3">
-                       <Icon icon={point.icon} className="w-5 h-5 text-primary opacity-60 group-hover:opacity-100 transition-opacity" />
-                       <span className="text-sm font-semibold text-white/80">{point.label}</span>
-                    </div>
-                    <span className="text-primary font-bold text-lg">{point.value}</span>
-                  </div>
-                  <div className="h-2 w-full bg-white/5 rounded-full overflow-hidden p-px">
-                    <div 
-                      className="h-full bg-gold-gradient transition-all duration-1000 group-hover:bg-glow"
-                      style={{ width: point.value }}
-                    />
-                  </div>
+          {/* Right Side: Visual Data Dashboard */}
+          <div className="flex-1 w-full relative">
+             <div className="relative aspect-square md:aspect-4/3 bg-[#122343] p-12 overflow-hidden shadow-2xl flex flex-col justify-between">
+                <div className="space-y-2">
+                   <h4 className="text-white font-black uppercase text-xl tracking-tighter">Global Trade Reach</h4>
+                   <p className="text-[10px] uppercase font-bold text-white/40 tracking-[0.4em]">Real-time Market Sync</p>
                 </div>
-              ))}
-            </div>
+
+                <div className="flex-1 flex items-center justify-center py-12">
+                   {/* Clean SVG Infographic */}
+                   <div className="relative w-64 h-64">
+                      {/* Outer Ring */}
+                      <div className="absolute inset-0 rounded-full border-4 border-white/5 border-dashed animate-spin-slow" />
+                      <div className="absolute inset-4 rounded-full border border-white/10" />
+                      
+                      {/* Center Hub */}
+                      <div className="absolute inset-12 rounded-full bg-[#ef4444] flex flex-col items-center justify-center text-center shadow-2xl z-10">
+                         <Icon icon="lucide:globe" className="w-8 h-8 text-white mb-1" />
+                         <span className="text-2xl font-black text-white">92%</span>
+                         <span className="text-[8px] uppercase font-bold text-white/80">Active</span>
+                      </div>
+
+                      {/* Radar Effect */}
+                      <div className="absolute inset-0 bg-linear-to-tr from-[#2ea2f7]/20 to-transparent rounded-full animate-radar" />
+                   </div>
+                </div>
+
+                <div className="pt-8 border-t border-white/10 grid grid-cols-2 gap-4 text-center">
+                   <div>
+                      <p className="text-white font-black text-xl">500+</p>
+                      <p className="text-[9px] uppercase text-white/40 font-bold tracking-widest">Trade Units</p>
+                   </div>
+                   <div>
+                      <p className="text-white font-black text-xl">100%</p>
+                      <p className="text-[9px] uppercase text-white/40 font-bold tracking-widest">Reliability</p>
+                   </div>
+                </div>
+
+                {/* Decorative Red Accent */}
+                <div className="absolute -bottom-6 -right-6 w-24 h-24 bg-[#ef4444]/20 rounded-full blur-2xl" />
+             </div>
+             
+             {/* Red Vertical Bar Accent Overlay */}
+             <div className="hidden lg:block absolute top-[20%] -left-1 w-1 h-[60%] bg-[#ef4444]" />
           </div>
 
         </div>

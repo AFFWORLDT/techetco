@@ -1,101 +1,52 @@
-import Image from "next/image";
+"use client";
+
 import { Icon } from "@iconify/react";
 
+const SERVICES = [
+  { name: "Freight Forwarder", desc: "Expert logistics management for your global cargo needs.", icon: "lucide:container" },
+  { name: "Haulier", desc: "Reliable land transportation and delivery solutions.", icon: "lucide:truck" },
+  { name: "Free Zone Company", desc: "Comprehensive setup and trade support in Dubai's Free Zones.", icon: "lucide:building-2" },
+  { name: "Clearing Agent", desc: "Efficient customs clearance and documentation services.", icon: "lucide:clipboard-check" },
+  { name: "Airline Agent", desc: "Optimizing air freight and logistics across the globe.", icon: "lucide:plane" },
+  { name: "Shipping Agent", desc: "Marine logistics and maritime trade expertise.", icon: "lucide:ship" }
+];
+
 export function OurService() {
-  const services = [
-    {
-      title: "Electronics Trading",
-      description: "Supplying high-quality electronic devices and components with competitive pricing to meet global market demands.",
-      image: "/Images/service-electronics.png",
-      icon: "lucide:cpu",
-      features: ["Latest Components", "Bulk Supply", "Global Logistics"]
-    },
-    {
-      title: "Shipping & Logistics",
-      description: "Providing efficient end-to-end logistics solutions that ensure on-time delivery and smooth international trade.",
-      image: "/Images/service-shipping.png",
-      icon: "lucide:shippable",
-      features: ["Freight Forwarding", "Supply Chain", "Express Delivery"]
-    }
-  ];
-
   return (
-    <section id="services" className="relative w-full py-24 md:py-32 overflow-hidden bg-background">
-      {/* Background Decoration */}
-      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-primary/5 rounded-full blur-[120px] z-0" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col items-center text-center space-y-4 mb-20">
-          <div className="flex items-center gap-2">
-            <div className="w-8 h-px bg-primary" />
-            <span className="text-primary font-bold tracking-widest uppercase text-xs">
-              What We Do
-            </span>
-            <div className="w-8 h-px bg-primary" />
-          </div>
-          <h2 className="text-4xl md:text-6xl font-heading font-bold text-white">
-            Comprehensive <span className="text-primary text-glow">Trade Solutions</span>
+    <section id="services" className="relative w-full py-24 bg-white overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col items-center text-center space-y-6 mb-20 animate-in fade-in duration-1000">
+          <div className="w-12 h-1 bg-[#ef4444] rounded-full" />
+          <h2 className="text-4xl md:text-5xl font-heading font-black text-[#122343]">
+            Our Trading <span className="text-[#2ea2f7]">Expertise</span>
           </h2>
-          <p className="max-w-2xl text-muted-foreground text-lg">
-            We provide specialized services across global markets, ensuring quality, reliability, and speed in every transaction.
+          <p className="max-w-2xl text-gray-400 text-lg leading-relaxed">
+            We provide specialized digital solutions and trading support across Dubai's most vital economic sectors.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 lg:gap-12">
-          {services.map((service, index) => (
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {SERVICES.map((service, idx) => (
             <div 
-              key={index}
-              className="group relative h-[500px] rounded-[3rem] overflow-hidden shadow-2xl transition-all duration-500 hover:-translate-y-2 border border-white/5"
+              key={idx}
+              className="relative p-12 rounded-sm border border-gray-100 bg-white hover:bg-[#122343] hover:border-[#122343] hover:shadow-2xl transition-all duration-500 group overflow-hidden"
             >
-              {/* Service Background Image */}
-              <Image
-                src={service.image}
-                alt={service.title}
-                fill
-                className="object-cover transition-transform duration-700 group-hover:scale-110 opacity-60"
-              />
-              
-              {/* Overlay Gradient */}
-              <div className="absolute inset-0 bg-linear-to-t from-black via-black/40 to-transparent z-10" />
-              
-              {/* Content */}
-              <div className="absolute inset-x-0 bottom-0 p-8 md:p-12 z-20 space-y-6">
-                <div className="w-14 h-14 glass rounded-2xl flex items-center justify-center text-primary mb-6 transition-transform group-hover:rotate-6">
+              <div className="relative z-10">
+                <div className="w-16 h-16 rounded-full bg-[#122343]/5 flex items-center justify-center text-[#122343] mb-8 group-hover:bg-white/10 group-hover:text-white transition-all">
                   <Icon icon={service.icon} className="w-8 h-8" />
                 </div>
-                
-                <div className="space-y-3">
-                  <h3 className="text-3xl md:text-4xl font-heading font-bold text-white group-hover:text-primary transition-colors">
-                    {service.title}
-                  </h3>
-                  <p className="text-white/70 text-lg leading-relaxed max-w-md">
-                    {service.description}
-                  </p>
-                </div>
-
-                <div className="flex flex-wrap gap-3">
-                  {service.features.map((feature, fIndex) => (
-                    <span 
-                      key={fIndex}
-                      className="glass px-4 py-1.5 rounded-full text-[10px] font-bold uppercase tracking-wider text-primary border-primary/20"
-                    >
-                      {feature}
-                    </span>
-                  ))}
-                </div>
-
-                <div className="pt-4 opacity-0 group-hover:opacity-100 transition-all duration-300 translate-y-4 group-hover:translate-y-0">
-                  <button className="flex items-center gap-2 text-primary font-bold">
-                    Learn More 
-                    <Icon icon="lucide:arrow-right" className="w-5 h-5" />
-                  </button>
+                <h4 className="text-xl font-black text-[#122343] mb-4 uppercase tracking-wider group-hover:text-white transition-colors">
+                  {service.name}
+                </h4>
+                <p className="text-gray-400 text-sm leading-relaxed group-hover:text-white/60 transition-colors">
+                  {service.desc}
+                </p>
+                <div className="pt-8 opacity-0 group-hover:opacity-100 transform translate-x-[-20px] group-hover:translate-x-0 transition-all">
+                  <Icon icon="lucide:arrow-right" className="w-6 h-6 text-[#2ea2f7]" />
                 </div>
               </div>
-
-              {/* Decorative Linear Corner Elements */}
-              <div className="absolute top-10 right-10 w-24 h-24 bg-linear-to-br from-primary/20 to-transparent p-px rounded-tr-3xl">
-                <div className="w-full h-full bg-background/50 backdrop-blur-sm rounded-tr-3xl" />
-              </div>
+              {/* Subtle hover background accent */}
+              <div className="absolute top-0 right-0 w-32 h-32 bg-[#ef4444]/5 rounded-full blur-3xl opacity-0 group-hover:opacity-100 transition-opacity" />
             </div>
           ))}
         </div>

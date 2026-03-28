@@ -1,93 +1,85 @@
+"use client";
+
 import { Icon } from "@iconify/react";
 
+const CONTACT_INFO = [
+  { icon: "lucide:map-pin", label: "Address", value: "Dubai Silicon Oasis, Dubai, UAE" },
+  { icon: "lucide:phone", label: "Phone", value: "+971 4 000 0000" },
+  { icon: "lucide:mail", label: "Email", value: "info@techetco.com" }
+];
+
 export function Contact() {
-  const contactInfo = [
-    { icon: "lucide:phone", label: "Phone", value: "+971 56 666 2351" },
-    { icon: "lucide:mail", label: "Email", value: "info@techetco.com" },
-    { icon: "lucide:globe", label: "Web", value: "www.techetco.com" },
-    { icon: "lucide:map-pin", label: "Address", value: "Ontario Tower, Business Bay, Dubai, UAE" },
-  ];
-
   return (
-    <section className="relative w-full py-24 md:py-32 overflow-hidden bg-background">
-      {/* Decorative background visual */}
-      <div className="absolute bottom-0 right-0 w-1/2 h-1/2 bg-primary/5 rounded-full blur-[120px] translate-x-1/4 translate-y-1/4" />
-
-      <div className="container mx-auto px-6 relative z-10">
-        <div className="flex flex-col lg:flex-row items-stretch gap-12 lg:gap-24">
+    <section id="contact" className="relative w-full py-32 bg-white overflow-hidden">
+      <div className="container mx-auto px-6">
+        <div className="flex flex-col lg:flex-row items-center gap-24">
           
-          {/* Left Content: Contact Information */}
-          <div className="flex-1 space-y-12">
-            <div className="space-y-4 text-center lg:text-left">
-              <div className="flex items-center justify-center lg:justify-start gap-2">
-                <div className="w-8 h-px bg-primary" />
-                <span className="text-primary font-bold tracking-widest uppercase text-xs">
-                  Get In Touch
-                </span>
+          {/* Left Side: Strategic Inquiry Contact Block */}
+          <div className="flex-1 space-y-16">
+            <div className="space-y-6">
+              <div className="flex items-center gap-4">
+                 <div className="w-12 h-0.5 bg-[#ef4444]" />
+                 <span className="text-[11px] font-black uppercase tracking-[0.3em] text-[#122343]">Contact Tech ET Co</span>
               </div>
-              <h2 className="text-4xl md:text-6xl font-heading font-bold text-white leading-tight">
-                Let's Start a <br />
-                <span className="text-primary">Conversation</span>
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-[#122343] leading-[0.95] tracking-tighter uppercase">
+                Strategic <br /> <span className="text-[#2ea2f7]">Partnership</span> <br /> Inquiry
               </h2>
-              <p className="text-muted-foreground text-lg max-w-md mx-auto lg:mx-0">
-                Ready to take your business to the next level? Our team is here to help you navigate global trade with ease.
+              <p className="text-lg text-gray-400 leading-relaxed font-normal max-w-xl">
+                 Connect with our team of global trade specialists to discuss high-value electronics procurement, logistics agility, and technical partnership opportunities within the Dubai corridor.
               </p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-              {contactInfo.map((info, i) => (
-                <div 
-                  key={i}
-                  className="glass p-6 rounded-2xl border-white/5 group hover:border-primary/30 transition-all duration-300"
-                >
-                  <div className="flex items-center gap-4">
-                    <div className="w-10 h-10 rounded-xl bg-primary/10 flex items-center justify-center text-primary group-hover:bg-primary group-hover:text-background transition-all">
-                      <Icon icon={info.icon} className="w-5 h-5" />
-                    </div>
-                    <div>
-                      <p className="text-[10px] text-muted-foreground uppercase font-bold tracking-widest">{info.label}</p>
-                      <p className="text-sm font-semibold text-white/90">{info.value}</p>
-                    </div>
+            <div className="space-y-12">
+               {CONTACT_INFO.map((info, i) => (
+                  <div key={i} className="flex items-center gap-6 group">
+                     <div className="w-16 h-16 rounded-full border border-gray-100 flex items-center justify-center text-[#ef4444] group-hover:bg-[#ef4444] group-hover:text-white group-hover:border-transparent transition-all">
+                        <Icon icon={info.icon} className="w-6 h-6" />
+                     </div>
+                     <div className="space-y-1">
+                        <p className="text-[10px] uppercase font-black tracking-widest text-[#2ea2f7]">{info.label}</p>
+                        <h5 className="font-black text-[#122343] text-lg uppercase tracking-wider">{info.value}</h5>
+                     </div>
                   </div>
-                </div>
-              ))}
-            </div>
-
-            <div className="pt-4">
-               <button className="w-full lg:w-auto bg-primary text-background px-8 py-4 rounded-xl font-bold flex items-center justify-center gap-3 hover:scale-105 transition-transform shadow-lg shadow-primary/20">
-                 Send us a Message
-                 <Icon icon="lucide:send" className="w-5 h-5" />
-               </button>
+               ))}
             </div>
           </div>
 
-          {/* Right Content: Modern Visual Frame */}
-          <div className="flex-1 min-h-[400px] relative rounded-[3rem] overflow-hidden border border-white/10 group">
-             {/* Simple Map-like background visual or abstract tech pattern */}
-             <div className="absolute inset-0 bg-slate-900">
-                {/* Abstract Tech Grid */}
-                <div className="absolute inset-0 opacity-20" 
-                     style={{ backgroundImage: 'radial-gradient(var(--color-primary) 1px, transparent 1px)', backgroundSize: '30px 30px' }} 
-                />
-                
-                {/* Floating "Dubai" Marker */}
-                <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                  <div className="relative">
-                    <div className="absolute inset-0 bg-primary/40 rounded-full animate-ping" />
-                    <div className="w-12 h-12 bg-primary rounded-full border-4 border-background flex items-center justify-center text-background relative z-10 shadow-2xl">
-                      <Icon icon="lucide:map-pin" className="w-6 h-6" />
-                    </div>
-                    <div className="absolute top-full left-1/2 -translate-x-1/2 mt-4 glass px-4 py-2 rounded-xl border-primary/30 whitespace-nowrap">
-                      <span className="text-sm font-bold text-white tracking-widest uppercase">Dubai, UAE</span>
-                    </div>
-                  </div>
+          {/* Right Side: Pro UI Contact Form Block */}
+          <div className="flex-1 w-full bg-[#122343] p-12 md:p-16 rounded-sm shadow-3xl text-white relative group overflow-hidden">
+             <div className="absolute top-0 right-0 w-32 h-32 bg-[#ef4444]/10 rounded-full blur-[100px] group-hover:bg-[#ef4444]/20 transition-all" />
+             <div className="relative z-10 space-y-10">
+                <div className="space-y-2">
+                   <h3 className="text-2xl font-black uppercase tracking-widest text-white leading-none">Inquiry Form</h3>
+                   <p className="text-[10px] uppercase font-bold text-white/50 tracking-[0.4em]">Connect with our trade desk</p>
                 </div>
+
+                <form className="space-y-8">
+                   <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+                      <div className="space-y-3">
+                         <label className="text-[10px] uppercase font-black text-white/40 tracking-widest">Full Name</label>
+                         <input type="text" className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-[#ef4444] transition-all text-white font-bold" placeholder="Required" />
+                      </div>
+                      <div className="space-y-3">
+                         <label className="text-[10px] uppercase font-black text-white/40 tracking-widest">Email Address</label>
+                         <input type="email" className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-[#ef4444] transition-all text-white font-bold" placeholder="yourname@domain.com" />
+                      </div>
+                   </div>
+                   <div className="space-y-3">
+                      <label className="text-[10px] uppercase font-black text-white/40 tracking-widest">Inquiry Message</label>
+                      <textarea rows={4} className="w-full bg-transparent border-b border-white/10 py-3 outline-none focus:border-[#ef4444] transition-all text-white font-bold resize-none" placeholder="Detail your trade requirement..."></textarea>
+                   </div>
+                   
+                   <div className="pt-8">
+                      <button className="w-full md:w-auto bg-[#ef4444] hover:bg-[#d93a3a] text-white px-12 py-5 font-black uppercase tracking-widest text-xs transition-all flex items-center justify-center gap-4 group">
+                         SUBMIT INQUIRY
+                         <Icon icon="lucide:send" className="w-4 h-4 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
+                      </button>
+                   </div>
+                </form>
              </div>
              
-             {/* Top corner decoration */}
-             <div className="absolute top-0 right-0 w-32 h-32 bg-linear-to-br from-primary/20 to-transparent p-px rounded-bl-[4rem]">
-                <div className="w-full h-full bg-background/50 backdrop-blur-sm rounded-bl-[4rem]" />
-             </div>
+             {/* Red Vertical Bar Accent Overlay */}
+             <div className="absolute top-1/2 -left-1 w-1 h-[60%] bg-[#ef4444] -translate-y-1/2 rounded-full" />
           </div>
 
         </div>
