@@ -3,12 +3,12 @@
 import { Icon } from "@iconify/react";
 
 const SERVICES = [
-  { name: "Freight Forwarder", desc: "Expert logistics management for your global cargo needs.", icon: "lucide:container" },
-  { name: "Haulier", desc: "Reliable land transportation and delivery solutions.", icon: "lucide:truck" },
+  { name: "Electronics Trading", desc: "Supplying high-quality electronic devices and components with competitive pricing to meet the growing demands of global markets.", icon: "lucide:cpu" },
+  { name: "Shipping & Logistics", desc: "Providing efficient end-to-end logistics solutions that ensure on-time delivery and smooth international trade operations.", icon: "lucide:ship" },
   { name: "Free Zone Company", desc: "Comprehensive setup and trade support in Dubai's Free Zones.", icon: "lucide:building-2" },
   { name: "Clearing Agent", desc: "Efficient customs clearance and documentation services.", icon: "lucide:clipboard-check" },
   { name: "Airline Agent", desc: "Optimizing air freight and logistics across the globe.", icon: "lucide:plane" },
-  { name: "Shipping Agent", desc: "Marine logistics and maritime trade expertise.", icon: "lucide:ship" }
+  { name: "Market Analysis", desc: "Data-driven insights to secure your procurement pipeline.", icon: "lucide:bar-chart-3" }
 ];
 
 export function OurService() {

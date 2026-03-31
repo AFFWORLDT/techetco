@@ -2,28 +2,29 @@
 
 import Link from "next/link";
 import { Icon } from "@iconify/react";
+import { FooterNewsletterLead } from "@/components/sections/forms/FooterNewsletterLead";
 
 export function Footer() {
   const currentYear = new Date().getFullYear();
 
   const footerLinks = {
     SOLUTIONS: [
-      { name: "Electronics Trading", href: "#" },
-      { name: "Shipping Logistics", href: "#" },
-      { name: "Global Partnership", href: "#" },
-      { name: "Market Analysis", href: "#" }
+      { name: "Electronics Trading", href: "/solutions/electronics-trading" },
+      { name: "Shipping Logistics", href: "/solutions/shipping-logistics" },
+      { name: "Global Partnership", href: "/solutions/global-partnership" },
+      { name: "Market Analysis", href: "/solutions/market-analysis" }
     ],
     COMPANY: [
       { name: "About Us", href: "/about" },
-      { name: "Our Vision", href: "#" },
-      { name: "Milestone", href: "#" },
-      { name: "Legal Notice", href: "#" }
+      { name: "Our Vision", href: "/company/our-vision" },
+      { name: "Milestone", href: "/company/milestone" },
+      { name: "Legal Notice", href: "/company/legal-notice" }
     ],
     RESOURCES: [
       { name: "Blog", href: "/blog" },
-      { name: "Case Studies", href: "#" },
-      { name: "FAQs", href: "#" },
-      { name: "Support Hub", href: "#" }
+      { name: "Case Studies", href: "/resources/case-studies" },
+      { name: "FAQs", href: "/resources/faqs" },
+      { name: "Support Hub", href: "/resources/support-hub" }
     ]
   };
 
@@ -38,6 +39,9 @@ export function Footer() {
   return (
     <footer className="w-full bg-[#122343] text-white pt-24">
       <div className="container mx-auto px-6">
+        <div className="pb-16">
+           <FooterNewsletterLead />
+        </div>
         <div className="flex flex-col lg:flex-row gap-20 pb-20">
           {/* Brand Info */}
           <div className="lg:w-1/3 space-y-8">
@@ -101,7 +105,7 @@ export function Footer() {
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
           <p className="text-[11px] text-gray-400 font-medium tracking-wide text-center md:text-left">
             &copy; {currentYear} Tech ET Co Electronics Trading Co. LLC. All rights reserved. {" "}
-            <Link href="#" className="underline ml-2">Privacy Policy</Link>
+            <Link href="/company/legal-notice" className="underline ml-2">Privacy Policy</Link>
           </p>
           <div className="flex items-center gap-6">
              <p className="text-[11px] text-gray-500 hidden md:block uppercase tracking-widest">Digital Solutions by Affworld</p>

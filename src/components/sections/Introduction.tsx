@@ -31,7 +31,7 @@ export function Introduction() {
           <div className="flex-1 relative w-full group">
             <div className="relative aspect-4/5 w-full bg-[#122343] p-1 shadow-2xl overflow-hidden group-hover:rotate-1 transition-transform">
                <Image 
-                  src="/Images/intro.png"
+                  src="/Images/dubai_corporate_hq_1774990313311.png"
                   alt="Techtrade Corporate Hub"
                   fill
                   className="object-cover opacity-90 transition-transform duration-700 group-hover:scale-105"
@@ -54,11 +54,11 @@ export function Introduction() {
                  <div className="w-12 h-0.5 bg-[#ef4444]" />
                  <span className="text-[11px] font-black text-[#122343] uppercase tracking-[0.3em]">About Tech ET Co</span>
               </div>
-              <h2 className="text-5xl md:text-7xl font-heading font-black text-[#122343] leading-[0.95] tracking-tighter">
-                Redefining the <br /> <span className="text-[#2ea2f7]">Global Commerce</span>
+              <h2 className="text-4xl md:text-6xl font-heading font-black text-[#122343] leading-[0.95] tracking-tighter">
+                Redefining <br /> <span className="text-[#2ea2f7]">Global Commerce</span>
               </h2>
-              <p className="text-lg text-gray-400 leading-relaxed font-normal">
-                Based in Dubai, the nexus of international trade, <span className="text-[#122343] font-bold">Tech ET Co</span> specializes in the agile procurement and delivery of high-end electronics. Our mission is to eliminate trade friction through localized expertise and global connectivity.
+              <p className="text-lg text-gray-500 leading-relaxed font-normal">
+                At TechET Co., we believe trade is more than just business – it’s about building bridges, connecting markets, and empowering growth. Based in Dubai, the world’s hub of innovation and commerce, we specialize in electronics trading. With a passion for excellence and a commitment to transparency, TechET is your trusted partner in navigating global markets and unlocking new opportunities.
               </p>
             </div>
 

@@ -36,9 +36,16 @@ export function OurVision() {
               <h2 className="text-4xl md:text-6xl font-heading font-black leading-tight tracking-tight drop-shadow-2xl">
                 Elevating the Standard of <br /> <span className="text-white italic opacity-80 decoration-[#ef4444] decoration-2 underline-offset-8 underline">Trade Intelligence</span>
               </h2>
-              <p className="text-lg text-white/50 leading-relaxed font-normal max-w-xl">
-                 At Tech ET Co, our vision is to establish a frictionless global trading network where technology and logistics converge to empower every partner.
-              </p>
+              <div className="space-y-6">
+                 <h3 className="text-2xl font-black text-white uppercase tracking-widest text-[#2ea2f7]">Our Vision</h3>
+                 <p className="text-lg text-white/60 leading-relaxed font-normal max-w-xl">
+                    To be a leading global trading partner that empowers businesses with innovative solutions, trusted partnerships, and sustainable growth. At TechET, our vision is to bridge markets across continents, harness technology to deliver excellence, and create value that drives progress for our clients, communities, and industries worldwide.
+                 </p>
+                 <h3 className="text-2xl font-black text-white uppercase tracking-widest text-[#ef4444] pt-4">Our Mission</h3>
+                 <p className="text-lg text-white/60 leading-relaxed font-normal max-w-xl">
+                    To deliver high-quality products and seamless trading solutions that build trust, create value, and drive success for our clients in every market we serve.
+                 </p>
+              </div>
             </div>
 
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

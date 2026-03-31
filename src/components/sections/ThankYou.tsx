@@ -21,7 +21,7 @@ export function ThankYou() {
         <div className="space-y-6">
            <div className="flex items-center justify-center gap-4">
               <div className="w-12 h-0.5 bg-[#ef4444]" />
-              <span className="text-[11px] font-black uppercase text-[#2ea2f7] tracking-[0.5em]">Submission Successful</span>
+              <span className="text-[11px] font-black uppercase text-[#2ea2f7] tracking-[0.5em]">Your Gateway to Global Trading</span>
               <div className="w-12 h-0.5 bg-[#ef4444]" />
            </div>
            

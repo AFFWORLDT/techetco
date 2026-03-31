@@ -10,7 +10,7 @@ const BLOG_POSTS = [
     title: "The Future of Electronics Trading: A Global Perspective",
     date: "March 15, 2026",
     category: "Market Insights",
-    image: "/Images/intro.png",
+    image: "/Images/modern_business_presentation_1774990438667.png",
     excerpt: "Exploring how blockchain and AI are redefining procurement and logistics in the global electronics market."
   },
   {
@@ -18,7 +18,7 @@ const BLOG_POSTS = [
     title: "Strategic Trade Corridor: Why Dubai is the Nexus of Trade",
     date: "March 10, 2026",
     category: "Logistics",
-    image: "/Images/service-electronics.png",
+    image: "/Images/electronics_trading_market_1774990567892.png",
     excerpt: "Dissecting the economic factors that make Dubai the world’s premier hub for international trade operations."
   },
   {
@@ -26,7 +26,7 @@ const BLOG_POSTS = [
     title: "Sustainable Practices in Trading Partnerships",
     date: "March 05, 2026",
     category: "Sustainability",
-    image: "/Images/service-shipping.png",
+    image: "/Images/dubai_port_night_1774990423967.png",
     excerpt: "A deep dive into zero-emission shipping and the technological innovations driving supply chain efficiency."
   }
 ];

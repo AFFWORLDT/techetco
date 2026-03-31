@@ -79,8 +79,8 @@
   body {
     @apply bg-background text-foreground selection:bg-primary/20 selection:text-primary antialiased;
   }
-  html {
-    @apply scroll-smooth;
+  html, body {
+    overscroll-behavior: none;
   }
 }
 

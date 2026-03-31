@@ -3,10 +3,10 @@
 import { Icon } from "@iconify/react";
 
 const ANALYTICAL_METRICS = [
-  { label: "Electronics Trading", value: "35%", color: "#ef4444", growth: "+12%" },
-  { label: "Global Partnership", value: "25%", color: "#2ea2f7", growth: "+8.5%" },
-  { label: "Shipping & Logistics", value: "20%", color: "#122343", growth: "+15.2%" },
-  { label: "Market Growth", value: "20%", color: "#6c757d", growth: "+5.1%" }
+  { label: "E-Commerce", value: "25%", color: "#ef4444", growth: "+12%" },
+  { label: "Electronics", value: "25%", color: "#2ea2f7", growth: "+8.5%" },
+  { label: "Shipping", value: "25%", color: "#122343", growth: "+15.2%" },
+  { label: "Market Analysis", value: "25%", color: "#6c757d", growth: "+5.1%" }
 ];
 
 export function MarketAnalysis() {

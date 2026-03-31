@@ -11,13 +11,13 @@ const MILESTONES = [
   },
   { 
     year: "2025", 
-    title: "Tech ET Co Dubai Registration", 
+    title: "Company Establishment", 
     desc: "Officially registered in Dubai, focusing on high-end electronics, shipping, and specialized procurement.", 
     icon: "lucide:building-2" 
   },
   { 
     year: "2026", 
-    title: "Expansion & Supply Networks", 
+    title: "Market Expansion", 
     desc: "Built strong supplier networks across Asia and the Middle East, preparing for international partnerships.", 
     icon: "lucide:trending-up" 
   }

@@ -3,33 +3,8 @@
 import Link from "next/link";
 import Image from "next/image";
 import { Icon } from "@iconify/react";
-
-const SAMPLE_POSTS = [
-  {
-    id: "1",
-    title: "The Future of Global Electronics Trading",
-    excerpt: "Discover how emerging technologies are reshaping supply chains and international markets in the upcoming decade.",
-    date: "March 15, 2026",
-    category: "Insights",
-    image: "/Images/intro.png"
-  },
-  {
-    id: "2",
-    title: "Navigating Logistics in the Middle East",
-    excerpt: "A comprehensive guide to leveraging Dubai's strategic location for optimized distribution networks.",
-    date: "April 2, 2026",
-    category: "Logistics",
-    image: "/Images/service-electronics.png"
-  },
-  {
-    id: "3",
-    title: "Sustainable Practices in Trading Partnerships",
-    excerpt: "Why sustainability is becoming the core driver of value in large-scale international B2B operations.",
-    date: "May 10, 2026",
-    category: "Sustainability",
-    image: "/Images/service-shipping.png"
-  }
-];
+import { WebinarRegistrationLead } from "@/components/sections/forms/WebinarRegistrationLead";
+import { blogs } from "@/data/blogs";
 
 export default function BlogPage() {
   return (
@@ -51,12 +26,12 @@ export default function BlogPage() {
           </p>
         </div>
 
-        {/* Blog Grid */}
+        {/* Massive 30+ Blog Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 max-w-7xl mx-auto">
-          {SAMPLE_POSTS.map((post) => (
+          {blogs.map((post) => (
             <Link 
               key={post.id} 
-              href={`/blog/${post.id}`}
+              href={`/blog/${post.slug}`}
               className="group relative flex flex-col bg-white/5 border border-white/5 overflow-hidden shadow-2xl hover:border-white/10 transition-all hover:bg-white/10"
             >
               <div className="relative aspect-video overflow-hidden">
@@ -71,22 +46,22 @@ export default function BlogPage() {
                  </div>
               </div>
 
-              <div className="p-8 space-y-6">
+              <div className="p-8 space-y-6 flex-1 flex flex-col">
                  <div className="flex items-center gap-2 text-[10px] font-bold text-white/40 uppercase tracking-widest">
                     <span>{post.date}</span>
                     <span className="w-1 h-1 bg-[#ef4444] rounded-full" />
-                    <span>Tech ET Co Editorial</span>
+                    <span>{post.readTime}</span>
                  </div>
                  
-                 <h4 className="text-xl font-black text-white group-hover:text-[#2ea2f7] transition-colors leading-tight min-h-[56px]">
+                 <h4 className="text-xl font-black text-white group-hover:text-[#2ea2f7] transition-colors leading-tight min-h-[56px] line-clamp-2">
                     {post.title}
                  </h4>
                  
-                 <p className="text-white/40 text-xs leading-relaxed line-clamp-3">
+                 <p className="text-white/40 text-xs leading-relaxed line-clamp-3 flex-1">
                     {post.excerpt}
                  </p>
                  
-                 <div className="pt-4 flex items-center justify-between opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300">
+                 <div className="pt-4 flex items-center justify-between opacity-0 translate-y-4 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-300 mt-auto">
                     <span className="text-[10px] uppercase font-black tracking-[0.3em] text-[#ef4444]">View Full Report</span>
                     <Icon icon="lucide:arrow-right" className="w-5 h-5 text-[#ef4444]" />
                  </div>
@@ -98,6 +73,7 @@ export default function BlogPage() {
         {/* Cinematic Backdrop Accent */}
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-[#ef4444]/5 rounded-full blur-[150px] -z-10" />
       </div>
+      <WebinarRegistrationLead />
     </main>
   );
 }

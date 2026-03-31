@@ -1,8 +1,12 @@
 import type { Metadata } from "next";
 import { Inter, Outfit } from "next/font/google";
 import "./globals.css";
+import { SmoothScroll } from "@/components/layout/SmoothScroll";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
+import { FloatingSidebarLead } from "@/components/sections/forms/FloatingSidebarLead";
+import { QuickQuoteBottomBar } from "@/components/sections/forms/QuickQuoteBottomBar";
+import { ExitIntentModal } from "@/components/sections/forms/ExitIntentModal";
 
 const inter = Inter({
   variable: "--font-inter",
@@ -31,11 +35,16 @@ export default function RootLayout({
       suppressHydrationWarning
     >
       <body className="min-h-full flex flex-col">
-        <Header />
-        <main className="flex-1">
-          {children}
-        </main>
-        <Footer />
+        <SmoothScroll>
+          <Header />
+          <main className="flex-1">
+            {children}
+          </main>
+          <Footer />
+          <FloatingSidebarLead />
+          <QuickQuoteBottomBar />
+          <ExitIntentModal />
+        </SmoothScroll>
       </body>
     </html>
   );

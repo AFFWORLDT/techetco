@@ -5,6 +5,8 @@ import Image from "next/image";
 import { Introduction } from "@/components/sections/Introduction";
 import { OurVision } from "@/components/sections/OurVision";
 import { Milestone } from "@/components/sections/Milestone";
+import { CareersApplicationLead } from "@/components/sections/forms/CareersApplicationLead";
+import { CEODirectConnectLead } from "@/components/sections/forms/CEODirectConnectLead";
 
 export default function AboutPage() {
   return (
@@ -13,7 +15,7 @@ export default function AboutPage() {
       <section className="relative w-full h-[50vh] min-h-[400px] bg-[#122343] flex items-center justify-center pt-20 overflow-hidden">
         <div className="absolute inset-0 opacity-20">
            <Image 
-              src="/Images/intro.png"
+              src="/Images/corporate_headquarters_interior_1774990552053.png"
               alt="Tech ET Co Corporate"
               fill
               className="object-cover"
@@ -64,6 +66,9 @@ export default function AboutPage() {
            </div>
         </div>
       </section>
+
+      <CEODirectConnectLead />
+      <CareersApplicationLead />
     </main>
   );
 }

@@ -6,6 +6,7 @@ import { OurService } from "@/components/sections/OurService";
 import { Milestone } from "@/components/sections/Milestone";
 import { MarketAnalysis } from "@/components/sections/MarketAnalysis";
 import { Blog } from "@/components/sections/Blog";
+import { TradingNeedsAssessmentLead } from "@/components/sections/forms/TradingNeedsAssessmentLead";
 import { Contact } from "@/components/sections/Contact";
 import { ThankYou } from "@/components/sections/ThankYou";
 
@@ -20,8 +21,9 @@ export default function Home() {
       <Milestone />
       <MarketAnalysis />
       <Blog />
+      <TradingNeedsAssessmentLead />
       <Contact />
-      {/* <ThankYou /> */}
+      <ThankYou />
     </div>
   );
 }
