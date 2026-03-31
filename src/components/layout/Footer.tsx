@@ -18,13 +18,25 @@ export function Footer() {
       { name: "About Us", href: "/about" },
       { name: "Our Vision", href: "/company/our-vision" },
       { name: "Milestone", href: "/company/milestone" },
-      { name: "Legal Notice", href: "/company/legal-notice" }
+      { name: "Investor Relations", href: "/company/investor-relations" },
+      { name: "Sustainability", href: "/company/sustainability" },
+      { name: "Media Kit", href: "/resources/media-kit" }
+    ],
+    COMPLIANCE: [
+      { name: "Privacy Policy", href: "/company/privacy-policy" },
+      { name: "Terms of Service", href: "/company/terms-of-service" },
+      { name: "Trade Compliance", href: "/company/trade-compliance" },
+      { name: "Anti-Bribery Policy", href: "/company/anti-bribery" },
+      { name: "Whistleblower", href: "/company/whistleblower" },
+      { name: "Accessibility", href: "/company/accessibility" }
     ],
     RESOURCES: [
       { name: "Blog", href: "/blog" },
       { name: "Case Studies", href: "/resources/case-studies" },
       { name: "FAQs", href: "/resources/faqs" },
-      { name: "Support Hub", href: "/resources/support-hub" }
+      { name: "Support Hub", href: "/resources/support-hub" },
+      { name: "Sitemap", href: "/sitemap-page" },
+      { name: "Cookie Policy", href: "/company/cookie-policy" }
     ]
   };
 

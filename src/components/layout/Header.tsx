@@ -60,7 +60,6 @@ export function Header() {
                   </Link>
                 );
               })}
-              <Icon icon="lucide:search" className="w-5 h-5 text-white/60 hover:text-white transition-colors cursor-pointer" />
             </nav>
 
             <div className="flex items-center gap-4">

@@ -85,11 +85,11 @@ export function MobileSidebar({ isOpen, setIsOpen }: { isOpen: boolean, setIsOpe
                 ))}
              </div>
 
-             <div className="p-6 border-t border-white/10 bg-black/20">
+             <div className="p-6 border-t border-white/10 bg-black/20 flex flex-col gap-4">
                 <button onClick={() => setIsOpen(false)} className="w-full bg-[#ef4444] text-white py-4 font-black uppercase text-xs tracking-widest flex items-center justify-center gap-2 hover:bg-[#2ea2f7] transition-all rounded-sm shadow-xl">
                     <Icon icon="lucide:phone-call" className="w-4 h-4" /> Priority Callback
                 </button>
-                <div className="mt-6 flex justify-center gap-6 text-white/40">
+                <div className="mt-4 flex justify-center gap-6 text-white/40">
                    <Icon icon="mdi:linkedin" className="w-6 h-6 hover:text-white transition-colors cursor-pointer" />
                    <Icon icon="ri:twitter-x-fill" className="w-6 h-6 hover:text-white transition-colors cursor-pointer" />
                    <Icon icon="mdi:facebook" className="w-6 h-6 hover:text-white transition-colors cursor-pointer" />
