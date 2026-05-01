@@ -15,13 +15,14 @@ export function FloatingSidebarLead() {
         animate={{ x: 0 }}
         transition={{ delay: 2, type: "spring" }}
         onClick={() => setIsOpen(true)}
-        className="fixed right-0 top-1/2 -translate-y-1/2 bg-[#ef4444] text-white p-3 rounded-l-lg shadow-2xl z-50 flex flex-col items-center gap-2 hover:bg-[#122343] transition-colors group"
+        className="fixed right-0 top-1/2 -translate-y-1/2 bg-[#ef4444] text-white p-3 rounded-l-lg shadow-2xl z-50 hidden md:flex flex-col items-center gap-2 hover:bg-[#122343] transition-colors group"
       >
         <span className="[writing-mode:vertical-rl] rotate-180 uppercase font-black tracking-widest text-xs group-hover:text-[#2ea2f7] transition-colors">
           Strategic Inquiry
         </span>
         <Icon icon="lucide:message-square" className="w-5 h-5 group-hover:text-[#2ea2f7] transition-colors" />
       </motion.button>
+
 
       {/* Slide-out Panel */}
       <AnimatePresence>

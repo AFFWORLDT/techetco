@@ -43,16 +43,16 @@ export default function CaseStudiesPage() {
                  className="group relative"
               >
                  <Link href={`/resources/case-studies/${study.slug}`} className="block">
-                    <div className="relative aspect-[16/10] overflow-hidden bg-black border border-white/10 group-hover:border-white/30 transition-all">
+                    <div className="relative aspect-square sm:aspect-[16/10] overflow-hidden bg-black border border-white/10 group-hover:border-white/30 transition-all">
                        <Image 
                           src={study.image}
                           alt={study.title}
                           fill
                           className="object-cover opacity-50 group-hover:opacity-80 group-hover:scale-105 transition-all duration-700 mix-blend-luminosity group-hover:mix-blend-normal"
                        />
-                       <div className="absolute inset-0 bg-gradient-to-t from-[#050A15] to-transparent" />
+                       <div className="absolute inset-0 bg-gradient-to-t from-[#050A15] via-[#050A15]/40 to-transparent" />
                        
-                       <div className="absolute inset-x-0 bottom-0 p-8 flex flex-col justify-end">
+                       <div className="absolute inset-0 p-6 md:p-8 flex flex-col justify-end">
                           <div className="flex items-center gap-3 mb-4">
                              <div className="px-3 py-1 bg-[#ef4444] text-white text-[9px] font-black uppercase tracking-widest leading-none">
                                 {study.industry}
@@ -60,7 +60,7 @@ export default function CaseStudiesPage() {
                              <span className="text-white/50 text-[10px] uppercase font-bold tracking-widest">{study.client}</span>
                           </div>
                           
-                          <h3 className="text-2xl lg:text-3xl font-black text-white leading-none uppercase tracking-tight mb-4 group-hover:text-[#2ea2f7] transition-colors">
+                          <h3 className="text-xl md:text-2xl lg:text-3xl font-black text-white leading-tight uppercase tracking-tight mb-3 md:mb-4 group-hover:text-[#2ea2f7] transition-colors">
                              {study.title}
                           </h3>
 

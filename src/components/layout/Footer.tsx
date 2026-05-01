@@ -49,21 +49,21 @@ export function Footer() {
   ];
 
   return (
-    <footer className="w-full bg-[#122343] text-white pt-24">
+    <footer className="w-full bg-[#122343] text-white pt-16 md:pt-24">
       <div className="container mx-auto px-6">
-        <div className="pb-16">
+        <div className="pb-12 md:pb-16">
            <FooterNewsletterLead />
         </div>
-        <div className="flex flex-col lg:flex-row gap-20 pb-20">
+        <div className="flex flex-col lg:flex-row gap-12 md:gap-16 lg:gap-20 pb-16 md:pb-20">
           {/* Brand Info */}
-          <div className="lg:w-1/3 space-y-8">
+          <div className="lg:w-1/3 space-y-6 md:space-y-8">
             <Link href="/" className="flex items-center gap-4">
-              <div className="w-14 h-14 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
-                <span className="text-white font-black text-2xl tracking-tighter">T</span>
+              <div className="w-12 h-12 md:w-14 md:h-14 bg-white/10 rounded-full flex items-center justify-center border border-white/20">
+                <span className="text-white font-black text-xl md:text-2xl tracking-tighter">T</span>
               </div>
               <div className="flex flex-col">
-                <span className="text-white font-heading font-black text-2xl tracking-tighter leading-none uppercase">TECH ET CO</span>
-                <span className="text-white font-heading font-light text-[9px] tracking-[0.4em] mt-0.5 uppercase opacity-60 italic">ELECTRONICS TRADING</span>
+                <span className="text-white font-heading font-black text-xl md:text-2xl tracking-tighter leading-none uppercase">TECH ET CO</span>
+                <span className="text-white font-heading font-light text-[8px] md:text-[9px] tracking-[0.4em] mt-0.5 uppercase opacity-60 italic">ELECTRONICS TRADING</span>
               </div>
             </Link>
             <p className="text-gray-400 text-sm leading-relaxed max-w-sm">
@@ -72,14 +72,14 @@ export function Footer() {
           </div>
 
           {/* Links Grid */}
-          <div className="flex-1 grid grid-cols-2 md:grid-cols-3 gap-12">
+          <div className="flex-1 grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-4 gap-x-8 gap-y-12">
             {Object.entries(footerLinks).map(([title, links]) => (
-              <div key={title} className="space-y-8">
-                <h4 className="text-sm font-bold tracking-widest text-white uppercase">{title}</h4>
-                <ul className="space-y-4">
+              <div key={title} className="space-y-6 md:space-y-8">
+                <h4 className="text-[11px] md:text-sm font-bold tracking-widest text-white uppercase">{title}</h4>
+                <ul className="space-y-3 md:space-y-4">
                   {links.map((link) => (
                     <li key={link.name}>
-                      <Link href={link.href} className="text-xs text-gray-400 hover:text-white transition-colors">
+                      <Link href={link.href} className="text-[10px] md:text-xs text-gray-400 hover:text-white transition-colors">
                         {link.name}
                       </Link>
                     </li>
@@ -90,20 +90,20 @@ export function Footer() {
           </div>
 
           {/* Stay Connected Section */}
-          <div className="lg:w-1/5 space-y-12 relative lg:pl-12">
+          <div className="lg:w-1/5 space-y-8 md:space-y-12 relative lg:pl-12">
              {/* Red Accent Bar */}
              <div className="hidden lg:block absolute top-0 left-0 w-px h-full bg-[#ef4444]" />
              
              <div className="space-y-6">
-                <h4 className="text-sm font-bold tracking-widest text-white uppercase">STAY CONNECTED</h4>
-                <div className="flex flex-wrap gap-4">
+                <h4 className="text-[11px] md:text-sm font-bold tracking-widest text-white uppercase">STAY CONNECTED</h4>
+                <div className="flex flex-wrap gap-3 md:gap-4">
                   {socialLinks.map((social, i) => (
                     <Link 
                       key={i} 
                       href={social.href} 
-                      className="w-10 h-10 border border-white/20 flex items-center justify-center hover:bg-[#ef4444] hover:border-[#ef4444] transition-all"
+                      className="w-9 h-9 md:w-10 md:h-10 border border-white/20 flex items-center justify-center hover:bg-[#ef4444] hover:border-[#ef4444] transition-all"
                     >
-                      <Icon icon={social.icon} className="w-5 h-5" />
+                      <Icon icon={social.icon} className="w-4 h-4 md:w-5 md:h-5" />
                     </Link>
                   ))}
                 </div>
@@ -113,20 +113,21 @@ export function Footer() {
       </div>
 
       {/* Bottom Legal Section */}
-      <div className="bg-[#1a1a1a] py-6">
+      <div className="bg-[#1a1a1a] py-6 md:py-8">
         <div className="container mx-auto px-6 flex flex-col md:flex-row items-center justify-between gap-6">
-          <p className="text-[11px] text-gray-400 font-medium tracking-wide text-center md:text-left">
+          <p className="text-[10px] md:text-[11px] text-gray-400 font-medium tracking-wide text-center md:text-left leading-relaxed">
             &copy; {currentYear} Tech ET Co Electronics Trading Co. LLC. All rights reserved. {" "}
             <Link href="/company/legal-notice" className="underline ml-2">Privacy Policy</Link>
           </p>
-          <div className="flex items-center gap-6">
-             <p className="text-[11px] text-gray-500 hidden md:block uppercase tracking-widest">Digital Solutions by Affworld</p>
-             <button className="bg-[#ef4444] hover:bg-[#d93a3a] text-white text-[11px] font-bold px-10 py-3 uppercase tracking-widest transition-all">
+          <div className="flex flex-col md:flex-row items-center gap-4 md:gap-6">
+             <p className="text-[9px] md:text-[11px] text-gray-500 uppercase tracking-widest">Digital Solutions by Affworld</p>
+             <button className="bg-[#ef4444] hover:bg-[#d93a3a] text-white text-[10px] md:text-[11px] font-bold px-8 md:px-10 py-2.5 md:py-3 uppercase tracking-widest transition-all">
                 Accept Cookies
              </button>
           </div>
         </div>
       </div>
     </footer>
+
   );
 }
